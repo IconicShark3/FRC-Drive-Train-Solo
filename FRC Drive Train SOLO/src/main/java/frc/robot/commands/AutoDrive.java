@@ -4,20 +4,21 @@
 
 package frc.robot.commands;
 
+import frc.robot.subsystems.DriveTrainSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ExampleCommand extends CommandBase {
+public class AutoDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ExampleSubsystem m_subsystem;
+  private final DriveTrainSubsystem m_subsystem;
 
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new AutoDrive .
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public AutoDrive (DriveTrainSubsystem subsystem) {
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -27,9 +28,13 @@ public class ExampleCommand extends CommandBase {
   @Override
   public void initialize() {}
 
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_subsystem.arcadeDrive(0.5, 17);
+    //How this works I do not know but it might work
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -41,3 +46,30 @@ public class ExampleCommand extends CommandBase {
     return false;
   }
 }
+
+/*
+public class Robot extends TimedRobot {
+    Command autonomousCommand;
+
+    /**
+     * This function is run when the robot is first started up and should be
+     * used for any initialization code.
+     */
+/*    public void robotInit() {
+      oi = new OI();
+        // instantiate the command used for the autonomous period
+        autonomousCommand = new SodaDelivery();
+    }
+
+    public void autonomousInit() {
+        // schedule the autonomous command (example)
+        if (autonomousCommand != null) autonomousCommand.start();
+    }
+
+    /**
+     * This function is called periodically during autonomous
+     */
+/*    public void autonomousPeriodic() {
+       Scheduler.getInstance().run();
+   }
+*/

@@ -32,7 +32,7 @@ public class AutoDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.arcadeDrive(0.5, 17);
+    m_subsystem.arcadeDrive(0.5, 0);
     //How this works I do not know but it might work
   }
 

@@ -33,7 +33,7 @@ public class AutoDrive extends CommandBase {
   @Override
   public void execute() {
     m_subsystem.arcadeDrive(0.5, 17);
-    waitcommand(2.0);
+    WaitCommand(1.0);
     //How this works I do not know but it might work
   }
 
